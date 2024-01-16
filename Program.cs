@@ -1,5 +1,4 @@
 using ATM;
-using System.Security.Principal;
 
 List<CardHolder> cardHolders = new List<CardHolder>();
 
@@ -41,15 +40,15 @@ Console.WriteLine($"Welcome {currentUser.GetFirstName()}");
 int option = 0;
 do
 {
-    currentUser.PrintOptions();
+    Machine.PrintOptions();
     try
     {
         option = int.Parse(Console.ReadLine());
     }
     catch { }
-    if (option == 1) { currentUser.Deposit(currentUser); }
-    else if (option == 2) { currentUser.Withdraw(currentUser); }
-    else if (option == 3) { currentUser.DisplayBalance(currentUser); }
+    if (option == 1) { Machine.Deposit(currentUser); }
+    else if (option == 2) { Machine.Withdraw(currentUser); }
+    else if (option == 3) { Machine.DisplayBalance(currentUser); }
     else if (option == 4) { break; }
     else { option = 0; }
 }
